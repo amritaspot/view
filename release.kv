@@ -1,0 +1,228 @@
+<release>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: (0.06, 0.43, 0.58, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: None
+            size_hint_x: None
+            Image:
+                source: 'release.png'
+#------------------------------------------------------------------------------------------------------
+<ScreenButton@Button>:
+    background_color: (0.06, 0.45, 0.45, 1) if self.state == 'normal' else (0.06, 0.48, 0.53, 1)
+        canvas.before:
+        Color:
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [50,]
+#-------------------------------------------------------------------------------------------------------
+<setup_splash>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: 0.1
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.45, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            BoxLayout:
+                size_hint_x:0.6
+                Label:
+                    text: ""
+            BoxLayout:
+                size_hint_x:0.1
+                id: network
+                Button:
+                    background_normal: 'network.png'
+                    on_press: root.network_setup
+            BoxLayout:
+                size_hint_x:0.1
+                id: training
+                Button:
+                    background_normal: 'training.png'
+                    on_press: root.training_mode
+            BoxLayout:
+                size_hint_x:0.1
+                id: support
+                Button:
+                    background_normal: 'support.png'
+                    on_press: root.call_support
+            BoxLayout:
+                size_hint_x:0.1
+                id: shutdown
+                Button:
+                    background_normal: 'shutdown.png'
+                    on_press: root.shutdown
+        BoxLayout:
+            size_hint_y: 0.8
+            Image:
+                source: 'logos.png'
+        BoxLayout:
+            size_hint_y:0.1
+            ScreenButton:
+                text: 'Enter setup for device'
+                markup: True
+                on_press: root.manager.current = setup_LIS
+#-------------------------------------------------------------------------------------------------------------
+<KeyboardButton@Button>:
+    background_color: (0.06, 0.45, 0.45, 1)
+    background_normal: ''
+    bold: True
+    font_size: 20
+#-------------------------------------------------------------------------------------------------------------
+<setup_network>:
+#setup ssid and password
+#-------------------------------------------------------------------------------------------------------------
+<setup_LIS>:
+#fetch passcode from the network
+#------------------------------------------------------------------------------------------------------------
+<errorcodes>:
+
+<mainsplash>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: 0.1
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.45, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            BoxLayout:
+                size_hint_x:0.6
+                Label:
+                    text: ""
+            BoxLayout:
+                size_hint_x:0.1
+                id: network
+                Button:
+                    background_normal: 'network.png'
+                    on_press: root.network_setup
+            BoxLayout:
+                size_hint_x:0.1
+                id: training
+                Button:
+                    background_normal: 'training.png'
+                    on_press: root.training_mode
+            BoxLayout:
+                size_hint_x:0.1
+                id: support
+                Button:
+                    background_normal: 'support.png'
+                    on_press: root.call_support
+            BoxLayout:
+                size_hint_x:0.1
+                id: shutdown
+                Button:
+                    background_normal: 'shutdown.png'
+                    on_press: root.shutdown
+        BoxLayout:
+            size_hint_y: 0.8
+            Image:
+                source: 'logos.png'
+        BoxLayout:
+            size_hint_y:0.1
+            ScreenButton:
+                text: 'Continue'
+                markup: True
+                on_press: root.manager.current = setup_LIS
+#-------------------------------------------------------------------------------------------
+<homepage>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            size_hint_y: 0.1
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.45, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            BoxLayout:
+                size_hint_x:0.6
+                Label:
+                    text: ""
+            BoxLayout:
+                size_hint_x:0.1
+                id: network
+                Button:
+                    background_normal: 'network.png'
+                    on_press: root.network_setup
+            BoxLayout:
+                size_hint_x:0.1
+                id: training
+                Button:
+                    background_normal: 'training.png'
+                    on_press: root.training_mode
+            BoxLayout:
+                size_hint_x:0.1
+                id: support
+                Button:
+                    background_normal: 'support.png'
+                    on_press: root.call_support
+            BoxLayout:
+                size_hint_x:0.1
+                id: shutdown
+                Button:
+                    background_normal: 'shutdown.png'
+                    on_press: root.shutdown
+        BoxLayout:
+            size_hint_y: 0.8
+            orientation: 'horizontal'
+            Button:
+                background_normal: 'test.png'
+                on_press: root.manager.current = main_testtype
+            Button:
+                background_normal: 'calibrate.png'
+                on_press: root.manager.current = main_caltype
+            Button:
+                background_normal: 'history.png'
+                on_press: root.manager.current = main_resultdata
+        BoxLayout:
+            size_hint_y:0.1
+            ScreenButton:
+                text: ''
+                markup: True
+
+#-----------------------------------------------------------------------------------------------------
+<main_testtype>:
+<main_caltype>:
+<main_reqid>:
+<main_calid>:
+<main_analyte>:
+<main_instruction>:
+<main_cardtestresult>:
+<main_urinestripresult>:
+<main_colorimeterresult>:
+<main_nephelometerresult>:
+<main_resultdata>:
